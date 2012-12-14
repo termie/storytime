@@ -6,8 +6,8 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     (r'^$', 'final.lasting.views.index'),
-    (r'^(?P<number>\d+)$', 'final.lasting.views.individual'),
-    (r'^_ah/warmup$', 'final.lasting.views.warmup'),
+    (r'^(?P<story>\s+)$', 'final.lasting.views.story'),
+    #(r'^_ah/warmup$', 'final.lasting.views.warmup'),
     # Example:
     # (r'^final/', include('final.foo.urls')),
 
