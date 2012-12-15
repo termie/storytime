@@ -59,6 +59,7 @@ def index(request):
   # Or do
   #obituarys = [x for x in obituarys
   #             if x.photo or x.statement != DECLINED]
+  request.session['session'] = True
   return shortcuts.render_to_response('templates/index.html', locals())
 
 
@@ -82,9 +83,11 @@ def twitter_callback(request):
   return shortcuts.redirect('/pick_a_story')
 
 
-def pick_a_story(request):
+def choose_your_path(request):
   # TODO(termie): move this into an auth middleware on the request
   user = api.get_participant(request.session.get('user'))
+  stories = api.list_stories()
+
   return shortcuts.render_to_response('templates/pick_a_story.html', locals())
 
 

@@ -20,3 +20,7 @@ def create_participant(user_info):
 
 def get_participant(key_name):
   return models.Participant.get_by_key_name(key_name)
+
+
+def list_stories():
+  return models.Story.all()

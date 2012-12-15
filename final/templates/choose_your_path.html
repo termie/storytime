@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Lasting Statement</title>
+    <title>Story Time | Choose Your Path</title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="static/screen.css" rel="stylesheet">
@@ -19,10 +19,17 @@
     <!--  })();-->
     <!--</script>-->
   </head>
-  <body id="individual">
-    <div class="span10 offset1" style="padding-top: 1%;">
-      <h1><a href="/">Lasting Statement</a></h1>
+  <body id="choose_your_path">
+    <div class="span6 offset3">
+      <h1>Choose your path.</h1>
       <hr />
+    </div>
+    <div class="span6 offset3">
+      <ul>
+      {% for story in stories %}
+      <li class="story">{{story.title}}</li>
+      {% endfor %}
+      </ul>
     </div>
 
     PICK A STORY {{user.name}}

@@ -4,6 +4,7 @@ from google.appengine.ext import db
 class Participant(db.Model):
   id = db.StringProperty()
   token = db.StringProperty()
+  secret = db.StringProperty()
   name = db.StringProperty()  # twitter name
   story = db.StringProperty()
   script = db.StringProperty()
