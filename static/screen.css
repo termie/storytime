@@ -1,50 +1,95 @@
-.card {
-  min-height: 100%;
-  padding-top: 5%;
-}
-#individual body {
-  min-height: 100%;
-}
-#individual .card {
-  min-height: 80%;
-  padding-top: 0%;
-}
-#individual #footer {
-  height: 20px;
-  margin-top: -20px;
-}
-div.photo {
+#intro {
   text-align: center;
-  height: 400px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #666;
+  color: #BBB;
+  margin-top: 25px;
 }
-img.photo {
-  height: 100%;
-}
-.statement {
-  margin-top: 15px;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0px;
+
+#intro p.statement {
+  font-size: 20px;
+  padding-top: 20px;
   line-height: 24px;
 }
-.words {
-  padding-left: 10px;
-  padding-right: 10px;
+
+#intro p.warning {
+  font-size: 12px;
+  padding-top: 20px;
 }
-.who {
-  font-weight: 600;
-  line-height: 100%;
-  float: left;
+
+body {
+  background-color: #111;
+
+  transition-property: background-color;
+  -webkit-transition-property: background-color;
+
+  /*transition-duration: 50ms;*/
+  /*-webkit-transition-duration: 1s;*/
+
+  transition-timing-function: ease-out;
+  -webkit-transition-timing-function: ease-out;
 }
-.who a, h1 a {
-  color: #333;
+
+
+
+
+#viewport {
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000px;
+  -o-perspective: 1000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
-.permalink {
-  float: right;
-  clear: none;
+
+#world {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -256px;
+  margin-top: -256px;
+  height: 512px;
+  width: 512px;
+  //border: 1px solid rgb( 255, 0, 0 );
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  pointer-events: none;
 }
-.icon-gray {
-  opacity: 0.3;
+
+#world div {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  /*width: 100%;*/
+  /*position: absolute;*/
+}
+
+.cloudBase {
+  //border: 1px solid #ff00ff;
+  position: absolute;
+  left: 256px;
+  top: 256px;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+.cloudLayer {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 256px;
+  height: 256px;
+  margin-left: -128px;
+  margin-top: -128px;
+  //border: 1px solid red;
+  -webkit-transition: opacity .5s ease-out;
+  -moz-transition: opacity .5s ease-out;
+  -o-transition: opacity .5s ease-out;
+}
+
+div.cloudBase img.cloudLayer {
+  max-width: none;
 }
