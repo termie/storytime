@@ -1,13 +1,17 @@
+import json
 import random
 
+from django import http
 from django import template
 from django import shortcuts
+from django.conf import settings
 from django.template import loader
 
 from google.appengine.api import memcache
 from google.appengine.ext import db
 
 from final import models
+from final import oauth
 
 
 DECLINED = 'This obituary declined to make a last statement.'
@@ -46,8 +50,8 @@ def _get_single(id):
 def index(request):
   #t = loader.get_template('templates/index.html')
   #c = template.RequestContext(request, locals())
-  obituarys = _get_data()
-  random.shuffle(obituarys)
+  #obituarys = _get_data()
+  #random.shuffle(obituarys)
   # Don't show photos for those without statements.
   #obituarys = [x for x in obituarys
   #             if x.photo and x.statement != DECLINED]
@@ -55,6 +59,23 @@ def index(request):
   #obituarys = [x for x in obituarys
   #             if x.photo or x.statement != DECLINED]
   return shortcuts.render_to_response('templates/index.html', locals())
+
+
+def twitter_login(request):
+  client = oauth.TwitterClient(settings.TWITTER_CONSUMER,
+                               settings.TWITTER_SECRET,
+                               settings.TWITTER_CALLBACK)
+  return shortcuts.redirect(client.get_authorization_url())
+
+
+def twitter_callback(request):
+  client = oauth.TwitterClient(settings.TWITTER_CONSUMER,
+                               settings.TWITTER_SECRET,
+                               settings.TWITTER_CALLBACK)
+  auth_token = request.REQUEST.get('oauth_token')
+  auth_verifier = request.REQUEST.get('oauth_verifier')
+  user_info = client.get_user_info(auth_token, auth_verifier=auth_verifier)
+  return http.HttpResponse(json.dumps(user_info))
 
 
 def individual(request, id):

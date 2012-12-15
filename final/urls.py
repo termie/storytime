@@ -6,7 +6,9 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     (r'^$', 'final.lasting.views.index'),
-    (r'^(?P<story>\s+)$', 'final.lasting.views.story'),
+    (r'^twitter/login$', 'final.lasting.views.twitter_login'),
+    (r'^twitter/callback$', 'final.lasting.views.twitter_callback'),
+    #(r'^(?P<story>\s+)$', 'final.lasting.views.story'),
     #(r'^_ah/warmup$', 'final.lasting.views.warmup'),
     # Example:
     # (r'^final/', include('final.foo.urls')),
