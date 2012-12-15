@@ -85,10 +85,10 @@ def twitter_callback(request):
 
 def choose_your_path(request):
   # TODO(termie): move this into an auth middleware on the request
-  user = api.get_participant(request.session.get('user'))
+  #user = api.get_participant(request.session.get('user'))
   stories = api.list_stories()
 
-  return shortcuts.render_to_response('templates/pick_a_story.html', locals())
+  return shortcuts.render_to_response('templates/choose_your_path.html', locals())
 
 
 def individual(request, id):

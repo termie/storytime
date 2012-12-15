@@ -19,23 +19,19 @@
     <!--  })();-->
     <!--</script>-->
   </head>
-  <body id="choose_your_path">
+  <body id="choose-your-path">
     <div class="span6 offset3">
-      <h1>Choose your path.</h1>
-      <hr />
+      <h1>Choose your path, traveler.</h1>
     </div>
     <div class="span6 offset3">
-      <ul>
       {% for story in stories %}
-      <li class="story">{{story.title}}</li>
+      <div class="story">
+        <span class="story-title">{{story.title}}</span>
+        <p class="story-desc">{{story.description}}</p>
+      </div>
       {% endfor %}
       </ul>
     </div>
 
-    PICK A STORY {{user.name}}
-
-    <div id="footer" class="span10 offset1" style="color: #CCC; text-align: right;">
-      <p style="padding-right: 10px;">project by <a href="http://term.ie/blog/lasting-statement">termie</a>
-    </div>
   </body>
 </html>
