@@ -61,7 +61,7 @@
     function lightning() {
       var fast_lightning_on = lightning_on.bind(null, 10);
       var fast_lightning_off = lightning_off.bind(null, 10);
-      var slow_lightning_off = lightning_off.bind(null, 150);
+      var slow_lightning_off = lightning_off.bind(null, 250);
 
       fast_lightning_on(fast_lightning_off(fast_lightning_on(slow_lightning_off)));
       setTimeout(lightning, (Math.random() * 10000) + 10000)

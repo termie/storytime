@@ -95,7 +95,7 @@ function createCloud() {
     for( var k = 0; k < computedWeights.length; k++ ) {
       if( r >= computedWeights[ k ].min && r <= computedWeights[ k ].max ) {
         ( function( img ) { img.addEventListener( 'load', function() {
-          img.style.opacity = .2;
+          img.style.opacity = .3;
         } ) } )( cloud );
         src = computedWeights[ k ].src;
       }
