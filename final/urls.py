@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     (r'^$', 'final.lasting.views.index'),
     (r'^twitter/login$', 'final.lasting.views.twitter_login'),
     (r'^twitter/callback$', 'final.lasting.views.twitter_callback'),
+    (r'^pick_a_story$', 'final.lasting.views.pick_a_story'),
     #(r'^(?P<story>\s+)$', 'final.lasting.views.story'),
     #(r'^_ah/warmup$', 'final.lasting.views.warmup'),
     # Example:

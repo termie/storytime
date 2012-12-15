@@ -10,6 +10,7 @@ from django.template import loader
 from google.appengine.api import memcache
 from google.appengine.ext import db
 
+from final import api
 from final import models
 from final import oauth
 
@@ -75,7 +76,16 @@ def twitter_callback(request):
   auth_token = request.REQUEST.get('oauth_token')
   auth_verifier = request.REQUEST.get('oauth_verifier')
   user_info = client.get_user_info(auth_token, auth_verifier=auth_verifier)
-  return http.HttpResponse(json.dumps(user_info))
+
+  p = api.create_participant(user_info)
+  request.session['user'] = p.key().name()
+  return shortcuts.redirect('/pick_a_story')
+
+
+def pick_a_story(request):
+  # TODO(termie): move this into an auth middleware on the request
+  user = api.get_participant(request.session.get('user'))
+  return shortcuts.render_to_response('templates/pick_a_story.html', locals())
 
 
 def individual(request, id):
