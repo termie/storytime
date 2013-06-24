@@ -1,2 +1,27 @@
 we are story
 you are ours
+
+---
+
+
+Data structure of parallel lives
+
+
+character
+
+character - time - location - content_blob
+
+content_blob = {'kind': 'tweet',
+                'body': 'foo msg',
+                'reply-to': $other_item_id}
+
+content_blob = {'kind': 'picture'
+                'data': binary_data,
+                'body': 'foo title $mention_character'}
+
+
+when posting a message a, record a bunch of information related to it
+so that we know what the tweet id is, and things like that, so that we
+can send replies to different people
+
+chorus members retweeting and such
